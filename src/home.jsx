@@ -101,6 +101,7 @@ function Home() {
           height: "100%",
           background: "rgba(0, 0, 0, 0.8)",
           zIndex: isVisible ? 10 : -1,
+          color: "white",
         }}
       >
         <div
@@ -112,6 +113,7 @@ function Home() {
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
+            color: "white",
           }}
         >
           <IconButton
@@ -121,17 +123,23 @@ function Home() {
           >
             <Typography variant="button">&times;</Typography>
           </IconButton>
-          <InputLabel>Enter your name</InputLabel>
-          <InputRounded
-            style={{ color: "white", fontSize: "30px" }}
-            size="30px"
-            placeholder="Search"
-          />
+          <input type="text" placeholder="type in here your name" />
+          <br />
+          <p style={{ color: "gray", fontSize: "18px" }}>
+            Your selected show is :
+          </p>
+          <h2>{selectedShow || localStorage.getItem("selectedShow")}</h2>
+          <p color="white">This is your animated form content.</p>
 
           <br />
-          <p>Your selected show is :</p>
-          <h2>{selectedShow || localStorage.getItem("selectedShow")}</h2>
-          <p>This is your animated popup content.</p>
+          <br />
+          <IconButton
+            variant="contained"
+            color="primary"
+            onClick={() => closePopup()}
+          >
+            Submit
+          </IconButton>
         </div>
       </animated.div>
     </>
